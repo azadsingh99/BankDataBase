@@ -85,8 +85,21 @@ public class Transaction {
                     break;
 
                 case 5:
-                    System.out.println("Thanks!!!!!!!!");
+                    System.out.print("Enter the Account Number : ");
+                    account_no = sc.nextInt();
+
+                    query = "SELECT total_amount from account where account_no = " + account_no;
+                    current_amount = jdbc.executeQuery(query);
+
+                    current_amount.next();
+
+                    amount = current_amount.getDouble("total_amount");
+                    System.out.println("TOTAL AMOUNT : " + amount);
                     break;
+
+                case 6:
+                    System.out.println("Thanks!!!!!!!!");
+                    System.exit(0);
             }
         }
     }
